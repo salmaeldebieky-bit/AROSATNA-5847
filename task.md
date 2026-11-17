@@ -1,0 +1,23 @@
+## Aroosetna rebuild
+- Approved: responsive web; secure email/password + managed Google; server-owned roles; manual InstaPay review; all bridal modules.
+- Reference: editorial wedding site, large photography, ivory, charcoal, muted sage, serif Arabic headings.
+- Do not copy reference text. Preserve user's Arabic content and payment destination.
+- Admin password supplied securely, bootstrap then remove plaintext env key.
+- Build: auth + Drizzle tables + protected oRPC + modular React UI.
+- Fix quantity/price consistency, paid vs committed budgets, relative care dates, daily water persistence, weight inputs and conservative health disclaimer.
+- Test build, registration/login, isolation, quantity budget changes, payment review, mobile layout.
+- Public sample workspace is clearly labeled demo, with no access to real users.
+ - Final build and lint passed. Desktop/mobile browser checks passed without overflow or page errors.
+ - Integration passed: unauthenticated/pending restrictions, admin role enforcement, cross-user write/delete isolation, receipt rejection/retry/approval and duplicate review protection, one-time onboarding, persisted quantities, invalid quantity/payment rejection, immediate suspension.
+ - All temporary integration/browser users and their receipts removed. Owner account retained; bootstrap plaintext password removed.
+ - Google flow wired through managed auth; external Google sign-in not end-to-end tested.
+ - Ready for website delivery on managed port 4200.
+## Revision — easier navigation and administrator access
+- User approved independent bridal/admin section pages, real photos, editable default content and individual bride records.
+- Owner password reset from secure form; verified sign-in, revoked sessions, removed plaintext env key.
+- Added /admin-login (prefilled email, password visibility), /payment, /admin/section-*, /admin/manage/:page? with explicit user target.
+- Config sections now store editable title, description and selected local photo; backward-compatible defaults.
+- Eight real photographs, clickable section cards and mobile page selector; filters reset on section navigation.
+- Admin edits protected by server role, target bride check and record ownership; templates clearly separated from live account edits.
+- New integration passed admin item/profile persistence, forbidden bride access, cross-target overwrite/delete protection and admin-account target rejection. Browser checked desktop/mobile routes, modal opening, target-preserving navigation, payment-active state, no overflow/page errors.
+- Final revised build and lint passed; browser smoke repeated successfully after mobile selector additions. Temporary accounts and token file removed; server health is OK.
